@@ -2,10 +2,10 @@ FROM mcr.microsoft.com/windows/nanoserver:1809
 WORKDIR /app
 
 # install dotnet
-RUN powershell -command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-RUN powershell -command choco feature enable -n allowGlobalConfirmation
-RUN powershell -command choco install dotnetcore
-RUN powershell -command choco install dotnetcore-sdk --pre
+RUN @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+RUN choco feature enable -n allowGlobalConfirmation
+RUN choco install dotnetcore
+RUN choco install dotnetcore-sdk --pre
 
 # copy csproj and restore as distinct layers
 COPY *.csproj ./
