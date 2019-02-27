@@ -11,4 +11,4 @@ RUN C:\Users\ContainerAdministrator\AppData\Local\Microsoft\dotnet\dotnet restor
 
 # copy and build everything else
 RUN C:\Users\ContainerAdministrator\AppData\Local\Microsoft\dotnet\dotnet publish -c Release -o out
-ENTRYPOINT ["C:\Users\ContainerAdministrator\AppData\Local\Microsoft\dotnet\dotnet", "out/Benchmark.dll"]
+ENTRYPOINT ["C:\Users\ContainerAdministrator\AppData\Local\Microsoft\dotnet\dotnet", "C:\app\bin\Release\netcoreapp2.1\Benchmark.dll"]
