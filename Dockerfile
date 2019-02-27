@@ -5,6 +5,7 @@ WORKDIR /app
 RUN powershell -command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 RUN powershell -command choco feature enable -n allowGlobalConfirmation
 RUN powershell -command choco install dotnetcore
+RUN powershell -command choco install dotnetcore-sdk --pre
 
 # copy csproj and restore as distinct layers
 COPY *.csproj ./
