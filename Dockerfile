@@ -9,8 +9,8 @@ RUN powershell -command $env:Path = [System.Environment]::GetEnvironmentVariable
 
 # copy csproj and restore as distinct layers
 # COPY *.csproj ./
-RUN dotnet restore
+RUN C:\Users\ContainerAdministrator\AppData\Local\Microsoft\dotnet\dotnet restore
 
 # copy and build everything else
-RUN dotnet publish -c Release -o out
+RUN C:\Users\ContainerAdministrator\AppData\Local\Microsoft\dotnet\dotnet publish -c Release -o out
 ENTRYPOINT ["Benchmark", "out/Benchmark.dll"]
