@@ -3,7 +3,7 @@ WORKDIR /app
 
 # install dotnet
 SHELL ["cmd", "/S", "/C"]    
-RUN powershell -noexit "& ""https://dot.net/v1/dotnet-install.ps1"""
+RUN powershell -noexit "& "".\dotnet-install.ps1"""
 
 # copy csproj and restore as distinct layers
 COPY *.csproj ./
