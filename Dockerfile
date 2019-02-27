@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/windows:1809
 WORKDIR /app
 
 # install dotnet 
-RUN RUN powershell -command .\dotnet-install.ps1
+RUN powershell -command .\dotnet-install.ps1
 
 # copy csproj and restore as distinct layers
 COPY *.csproj ./
