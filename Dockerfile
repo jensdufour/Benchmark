@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/nanoserver:1709
+FROM mcr.microsoft.com/windows:1809
 WORKDIR /app
 
 # install dotnet
