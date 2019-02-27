@@ -3,6 +3,7 @@ WORKDIR /app
 
 # install dotnet 
 COPY . ./
+RUN powershell -command Set-ExecutionPolicy RemoteSigned
 RUN powershell -command .\dotnet-install.ps1
 
 # copy csproj and restore as distinct layers
