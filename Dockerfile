@@ -14,4 +14,4 @@ RUN dotnet restore
 # copy and build everything else
 COPY . ./
 RUN dotnet publish -c Release -o out
-ENTRYPOINT ["dotnet", "C:\app\bin\Release\netcoreapp2.1\Benchmark.dll"]
+RUN dotnet run -c Release
