@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Threading;
 using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Running;
 
-namespace Benchmark
+namespace MyBenchmarks
 {
-    [SimpleJob(RunStrategy.ColdStart, launchCount:20)]
+    [SimpleJob(launchCount: 3, warmupCount: 10, targetCount: 30)]
     public class Md5VsSha256
     {
+        private const int N = 10000;
         private readonly byte[] data;
 
         private readonly SHA256 sha256 = SHA256.Create();
         private readonly MD5 md5 = MD5.Create();
-        private const int N = 1000;
 
         public Md5VsSha256()
         {
