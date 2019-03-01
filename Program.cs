@@ -5,13 +5,14 @@ using BenchmarkDotNet.Running;
 
 namespace Benchmark
 {
+    [SimpleJob(RunStrategy.ColdStart, launchCount:100)]
     public class Md5VsSha256
     {
-        private const int N = 10000;
         private readonly byte[] data;
 
         private readonly SHA256 sha256 = SHA256.Create();
         private readonly MD5 md5 = MD5.Create();
+        private const int N = 10000;
 
         public Md5VsSha256()
         {
