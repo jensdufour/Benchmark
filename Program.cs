@@ -13,7 +13,7 @@ namespace Benchmark
         private MD5 md5 = MD5.Create();
         private byte[] data;
 
-        [Params(1000, 10000)]
+        [Params(10, 20)]
         public int N;
 
         [GlobalSetup]
